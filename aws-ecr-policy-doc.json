@@ -11,7 +11,7 @@
                 "ecr:CompleteLayerUpload",
                 "ecr:BatchCheckLayerAvailability"
             ],
-            "Resource": "arn:aws:ecr:eu-north-1:263937883789:repository/aws-repo-for-my-webpage"
+            "Resource": "arn:aws:ecr:eu-north-1:*:repository/aws-repo-for-my-webpage"
         },
         {
             "Sid": "VisualEditor1",
