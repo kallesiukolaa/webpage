@@ -4,4 +4,6 @@ aws iam create-policy --policy-name ecr-access-for-github-user --description "Th
 
 aws iam create-user --user-name github-actions-user-for-webpage --permissions-boundary arn:aws:iam::263937883789:policy/ecr-access-for-github-user
 
+aws iam attach-user-policy --user-name github-actions-user-for-webpage --policy-arn arn:aws:iam::263937883789:policy/ecr-access-for-github-user
+
 aws iam create-access-key --user-name github-actions-user-for-webpage
