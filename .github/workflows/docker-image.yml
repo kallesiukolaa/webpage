@@ -17,7 +17,7 @@ jobs:
             - name: Build the Docker image
               env:
                 IMAGE_TAG_NAME: ${{ steps.image-tag.outputs.image-tag-name }}
-              run: docker build . -t $IMAGE_TAG_name
+              run: docker build . -t $IMAGE_TAG_NAME
 
             - name: AWS login
               uses: aws-actions/configure-aws-credentials@v1
