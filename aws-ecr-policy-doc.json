@@ -1,0 +1,11 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "VisualEditor0",
+			"Effect": "Allow",
+			"Action": "ecr:PutImage",
+			"Resource": "arn:aws:ecr:eu-north-1:263937883789:repository/aws-repo-for-my-webpage"
+		}
+	]
+}
