@@ -6,6 +6,12 @@
 			"Effect": "Allow",
 			"Action": "ecr:PutImage",
 			"Resource": "arn:aws:ecr:eu-north-1:263937883789:repository/aws-repo-for-my-webpage"
+		},
+        {
+			"Sid": "VisualEditor1",
+			"Effect": "Allow",
+			"Action": "ecr:GetAuthorizationToken",
+			"Resource": "arn:aws:ecr:eu-north-1:263937883789:repository/aws-repo-for-my-webpage"
 		}
 	]
 }
