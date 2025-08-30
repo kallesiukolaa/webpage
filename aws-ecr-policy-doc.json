@@ -4,7 +4,7 @@
 		{
 			"Sid": "VisualEditor0",
 			"Effect": "Allow",
-			"Action": ["ecr:PutImage", "ecr:InitiateLayerUpload", "ecr:UploadLayerPart"],
+			"Action": ["ecr:PutImage", "ecr:InitiateLayerUpload", "ecr:UploadLayerPart", "ecr:CompleteLayerUpload"],
 			"Resource": "arn:aws:ecr:eu-north-1:263937883789:repository/aws-repo-for-my-webpage"
 		},
         {
