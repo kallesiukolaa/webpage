@@ -34,6 +34,5 @@ jobs:
               id: push-ecr
               env:
                 ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-                ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
                 IMAGE_TAG_NAME: ${{ steps.image-tag.outputs.image-tag-name }}
-              run: docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG_NAME
+              run: docker push $ECR_REGISTRY/aws-repo-for-my-webpage:$IMAGE_TAG_NAME
