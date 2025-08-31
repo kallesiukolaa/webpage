@@ -3,8 +3,8 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 
 # Install deps (use npm ci for reproducible builds)
-COPY package.json ./
-RUN npm install --omit=dev --ignore-scripts
+COPY package*.json ./
+RUN npm ci
 
 # Build TypeScript
 COPY tsconfig.json ./

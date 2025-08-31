@@ -140,7 +140,6 @@ vite.config.ts.timestamp-*
 
 # Node modules
 node_modules
-package-lock.json
 
 **/*.js
 **/*.js.map
