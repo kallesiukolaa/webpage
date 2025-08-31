@@ -35,4 +35,4 @@ jobs:
               env:
                 ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
                 IMAGE_TAG_NAME: ${{ steps.image-tag.outputs.image-tag-name }}
-              run: docker image tag $IMAGE_TAG_NAME $ECR_REGISTRY/aws-repo-for-my-webpage:$IMAGE_TAG_NAME && docker push $ECR_REGISTRY/aws-repo-for-my-webpage:$IMAGE_TAG_NAME
+              run: docker image tag $IMAGE_TAG_NAME $ECR_REGISTRY/aws-repo-for-my-webpage:latest && docker push $ECR_REGISTRY/aws-repo-for-my-webpage:latest
