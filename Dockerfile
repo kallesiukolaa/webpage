@@ -1,24 +1,35 @@
-FROM node:20-alpine
-
+# ---- Build stage ----
+FROM node:20-alpine AS builder
 WORKDIR /app
 
-# Only copy package manifest first (better layer caching)
+# Install deps (use npm ci for reproducible builds)
 COPY package.json ./
+RUN npm install --omit=dev --ignore-scripts
 
-# Generate lockfile inside the image (not in your repo)
-RUN npm install --package-lock-only
+# Build TypeScript
+COPY tsconfig.json ./
+COPY src ./src
+RUN npm run build
 
-# Install deps strictly per the generated lock
-RUN npm ci
+# ---- Runtime stage ----
+FROM node:20-alpine AS runner
+WORKDIR /app
+ENV NODE_ENV=production
+ENV PORT=3000
 
-# Now copy the rest of the source
-COPY . .
+# Copy only what's needed to run (and install prod deps)
+COPY --chown=node:node package*.json ./
+RUN npm ci --omit=dev --ignore-scripts
 
-# Create non-root user
-RUN addgroup -S appgroup && adduser -S appuser -G appgroup \
-  && chown -R appuser:appgroup /app
+# Copy compiled JS from builder, owned by non-root user
+COPY --from=builder --chown=node:node /app/dist ./dist
 
-USER appuser
+# Drop privileges
+USER node
 
-EXPOSE 5173
-CMD ["npm", "run", "dev", "--", "--host"]
+EXPOSE 3000
+
+# Simple container healthcheck hitting your /healthcheck endpoint
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s CMD wget -qO- http://127.0.0.1:${PORT}/healthcheck >/dev/null 2>&1 || exit 1
+
+CMD ["node", "dist/index.js"]
