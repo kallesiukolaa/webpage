@@ -2,10 +2,11 @@
     "rules": [
         {
             "rulePriority": 1,
-            "description": "Rule 1",
+            "description": "Remove all untagged images after two days.",
             "selection": {
-                "tagStatus": "any",
-                "countType": "imageCountMoreThan",
+                "tagStatus": "untagged",
+                "countType": "sinceImagePushed",
+                "countUnit": "days",
                 "countNumber": 2
             },
             "action": {
