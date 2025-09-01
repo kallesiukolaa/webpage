@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 3000;
 
 // Root endpoint -> prints "hello world"
 app.get("/", (req: Request, res: Response) => {
+  var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
+  console.log("The new request from IP " + ip)
   res.send("Hello world!");
 });
 
