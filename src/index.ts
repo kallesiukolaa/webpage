@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 // Root endpoint -> prints "hello world"
 app.get("/", (req: Request, res: Response) => {
-  res.send("hello world");
+  res.send("Hello world!");
 });
 
 // Healthcheck endpoint -> returns 200
