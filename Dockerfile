@@ -25,6 +25,9 @@ RUN npm ci --omit=dev --ignore-scripts
 # Copy compiled JS from builder, owned by non-root user
 COPY --from=builder --chown=node:node /app/dist ./dist
 
+# Copy public folder
+COPY --from=builder --chown=node:node /app/public ./app/public
+
 # Drop privileges
 USER node
 
