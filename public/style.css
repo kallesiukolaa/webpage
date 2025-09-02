@@ -177,3 +177,22 @@ section h2 {
     font-size: 1.8rem;
     margin-bottom: 0.4rem;
 }
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-row img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+.title-green {
+  margin: 0;
+  font-size: clamp(24px, 4.6vw, 42px);
+  font-weight: 800;
+  color: #00bfa5; /* brand green */
+}
