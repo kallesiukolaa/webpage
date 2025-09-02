@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Me | Technarion</title>
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    :root {
+      --bg-image: url('./images/consulting.jpg'); /* same background as homepage */
+      --ink: #eef2f3;
+      --brand: #00bfa5;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      background:
+        linear-gradient(180deg, rgba(7,18,26,.85), rgba(14,34,48,.85)),
+        var(--bg-image) center / cover no-repeat fixed;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    h1, h2 { color: var(--brand); }
+    a { color: var(--brand); }
+    img {
+      max-width: 180px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>About Me</h1>
+    <img src="./images/profile-placeholder.jpg" alt="Your photo" />
+    <p>
+      Hello! I’m <strong>[Your Name]</strong>, founder of <strong>Technarion</strong>.
+      Based in Helsinki, I specialize in data engineering and software development consulting.
+    </p>
+    <p>
+      Over the past decade I’ve worked with companies across industries to
+      design scalable data platforms, optimize pipelines, and build reliable cloud solutions.
+      My passion is helping teams unlock value from their data and ship software faster.
+    </p>
+    <h2>Core Values</h2>
+    <ul>
+      <li><strong>Partnership:</strong> I work side-by-side with clients, enabling their teams.</li>
+      <li><strong>Quality:</strong> Testing, observability, and sustainability come first.</li>
+      <li><strong>Outcome-driven:</strong> Every engagement starts with measurable goals.</li>
+    </ul>
+    <p>
+      Want to connect? Reach me at
+      <a href="mailto:hello@technarion.com">hello@technarion.com</a>.
+    </p>
+  </main>
+</body>
+</html>
