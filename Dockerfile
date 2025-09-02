@@ -26,7 +26,7 @@ RUN npm ci --omit=dev --ignore-scripts
 COPY --from=builder --chown=node:node /app/dist ./dist
 
 # Copy public folder
-COPY --from=builder --chown=node:node /app/public ./app/public
+COPY --from=builder --chown=node:node /app/public ./public
 
 # Drop privileges
 USER node
