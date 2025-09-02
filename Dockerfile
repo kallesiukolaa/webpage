@@ -9,6 +9,7 @@ RUN npm ci
 # Build TypeScript
 COPY tsconfig.json ./
 COPY src ./src
+COPY public ./public
 RUN npm run build
 
 # ---- Runtime stage ----
