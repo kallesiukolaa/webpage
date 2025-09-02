@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Montserrat:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    font-family: 'Montserrat', sans-serif;
+    color: #e0e0e0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: rgba(20, 30, 50, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 1;
+}
+
+button#print-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #008080;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+button#print-btn:hover {
+    background-color: #005050;
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid #005050;
+    padding-bottom: 1rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8rem;
+    color: #00bfa5;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.tagline {
+    margin-top: 0.3rem;
+    font-style: italic;
+    font-weight: 600;
+    color: #a0d8d3;
+}
+
+.profile {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    border-bottom: 1px solid #004040;
+    padding-bottom: 1.8rem;
+}
+
+.profile img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00bfa5;
+    filter: drop-shadow(0 0 6px #00bfa5);
+}
+
+.profile p {
+    flex: 1;
+    font-size: 1.05rem;
+    color: #c0dcdc;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    color: #00bfa5;
+    border-bottom: 2px solid #00bfa5;
+    padding-bottom: 0.3rem;
+    margin-top: 2.5rem;
+}
+
+.contact ul,
+.skills .skill-list {
+    list-style: none;
+    padding: 0;
+}
+
+.contact li {
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+    color: #a0d8d3;
+}
+
+.skills .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 0.8rem;
+}
+
+.skills li {
+    background: linear-gradient(135deg, #00bfa5);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    color: white;
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: none;
+    transition: transform 0.2s ease-in-out;
+}
+
+.skills li:hover {
+    transform: scale(1.1);
+}
+
+.experience .job {
+    margin-bottom: 2rem;
+}
+
+.experience h3 {
+    margin: 0;
+    color: #00bfa5;
+    font-weight: 700;
+    font-size: 1.2rem;
+    
+}
+
+.experience p em {
+    color: #66cfcf;
+    font-size: 0.95rem;
+}
+
+.experience ul {
+    margin-top: 0.5rem;
+    padding-left: 1.2rem;
+    color: #c0dcdc;
+    font-size: 1rem;
+    break-before: always;
+}
+
+.experience ul li {
+    margin-bottom: 0.4rem;
+}
+
+.education p {
+    font-size: 1.05rem;
+    color: #a0d8d3;
+    margin-top: 0.5rem;
+}
+
+.signature {
+    margin-top: 4rem;
+    text-align: right;
+    font-style: italic;
+    color: #55a099;
+}
+
+.signature h3 {
+    font-family: 'Pacifico', cursive;
+    font-weight: normal;
+    font-size: 1.8rem;
+    margin-bottom: 0.4rem;
+}
