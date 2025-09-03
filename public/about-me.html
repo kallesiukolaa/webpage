@@ -7,35 +7,46 @@
   <title>About Me | Technarion</title>
   <link rel="stylesheet" href="./style.css" />
   <style>
-    :root {
-      --bg-image: url('./images/consulting.jpg'); /* same background as homepage */
-      --ink: #eef2f3;
-      --brand: #00bfa5;
+    :root{
+      --bg-1:#07121a; --bg-2:#0e2230; --ink:#eef2f3; --muted:#b8d3d0; --brand:#00bfa5; --brand-ink:#062b2a;
+      --card:#0c1b26; --stroke:#11414a;
+      /* set this to your image path */
+      --bg-image:url('./images/consulting.jpg');
     }
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      color: var(--ink);
-      line-height: 1.6;
+
+    /* FULL-WIDTH LAYOUT */
+    header,section,footer{padding:clamp(16px,2.2vw,28px) clamp(18px,4vw,80px);}    
+    header{display:flex;align-items:center;justify-content:space-between;gap:2rem;border-bottom:1px solid #0f2b38}
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;color:var(--ink);
       background:
         linear-gradient(180deg, rgba(7,18,26,.85), rgba(14,34,48,.85)),
         var(--bg-image) center / cover no-repeat fixed;
     }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
     h1, h2 { color: var(--brand); }
     a { color: var(--brand); }
-    img {
-      max-width: 180px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-    }
+    main img {
+    max-width: 180px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
   </style>
 </head>
 <body>
+  <header>
+  <div class="brand-row">
+  <a href="/" class="brand-link">
+    <img src="./favicon_round.svg" alt="Technarion logo" />
+  </a>
+  <h1 class="title-green">Technarion</h1>
+</div>
+  <div class="row">
+    <a class="btn" href="/about-me.html">About Me</a>
+    <a class="btn" href="/contact.html">Contact us</a>
+  </div>
+</header>
   <main>
     <h1>About Me</h1>
     <img src="./images/profile-placeholder.jpg" alt="Your photo" />
@@ -59,5 +70,12 @@
       <a href="mailto:hello@technarion.com">hello@technarion.com</a>.
     </p>
   </main>
+
+  <footer>
+  © <span id="year"></span> Technarion · Helsinki · All rights reserved
+  <nav>
+    <a href="/privacy-policy.html">Privacy Policy</a>
+  </nav>
+</footer>
 </body>
 </html>

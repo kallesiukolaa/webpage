@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Technarion — Data Engineering & Software Consulting | Helsinki</title>
+  <meta name="description" content="Technarion is a Helsinki-based consultancy specializing in data engineering and software development. We build data platforms, analytics solutions, and cloud-native apps." />
+  <meta property="og:title" content="Technarion — Data Engineering & Software Consulting" />
+  <meta property="og:description" content="Helsinki-based experts in data engineering and software development." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_FI" />
+  <link rel="icon" href="/favicon_round.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    :root{
+      --bg-1:#07121a; --bg-2:#0e2230; --ink:#eef2f3; --muted:#b8d3d0; --brand:#00bfa5; --brand-ink:#062b2a;
+      --card:#0c1b26; --stroke:#11414a;
+      /* set this to your image path */
+      --bg-image:url('./images/consulting.jpg');
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;color:var(--ink);
+      background:
+        linear-gradient(180deg, rgba(7,18,26,.85), rgba(14,34,48,.85)),
+        var(--bg-image) center / cover no-repeat fixed;
+    }
+
+    /* TYPOGRAPHY */
+    h1{margin:0;font-size:clamp(28px,5vw,48px);letter-spacing:.5px}
+    .tagline{margin:.4rem 0 0;color:var(--muted);font-size:clamp(14px,2.2vw,18px)}
+    h2{margin:0 0 1rem;color:var(--brand);font-size:clamp(22px,3.6vw,28px)}
+    p{max-width:80ch;color:#e7f4f3}
+    a{color:var(--brand)} a:hover{text-decoration:underline}
+
+    /* ICON CARDS GRID */
+    .grid{display:grid;gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{background:rgba(12,27,38,.55);backdrop-filter:saturate(120%) blur(4px);
+      border:1px solid var(--stroke);border-radius:14px;padding:18px;display:flex;gap:14px;align-items:flex-start}
+
+    .icon{width:28px;height:28px;flex:0 0 28px;display:inline-block}
+    .icon svg{width:28px;height:28px;display:block}
+    .icon circle,.icon path,.icon rect,.icon line{stroke:#9fe6db}
+
+    /* KPI STRIP */
+    .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:10px}
+    .kpi{background:rgba(10,25,34,.45);backdrop-filter:blur(2px);border:1px dashed #22565e;border-radius:12px;padding:12px}
+    .kpi h3{margin:.2rem 0;color:#a0d8d3}
+
+    /* UTIL */
+    .stack{display:flex;flex-direction:column;gap:10px}
+    h1 { color: var(--brand); }
+    form { display:grid; gap:12px; background:rgba(12,27,38,.55); border:1px solid #11414a; border-radius:14px; padding:18px; backdrop-filter:saturate(120%) blur(4px); }
+    .row_form { display:grid; gap:12px; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); }
+    label { font-weight:600; }
+    input, textarea { width:100%; padding:.7rem .8rem; border-radius:10px; border:1px solid #22565e; background:#0e2230; color:#eef2f3; }
+    input:focus, textarea:focus { outline:2px solid var(--brand); border-color: var(--brand); }
+    button { background:var(--brand); color:#062b2a; border:0; padding:.8rem 1.1rem; border-radius:10px; font-weight:700; cursor:pointer; }
+    .note { font-size:.9rem; color:#b8d3d0; }
+    .status { margin-top:8px; font-size:.95rem; }
+    .status.ok { color:#7fe1d3; }
+    .status.err { color:#ffb3b3; }
+  </style>
+</head>
+<body>
+  
+<header>
+<div class="brand-row">
+  <a href="/" class="brand-link">
+    <img src="./favicon_round.svg" alt="Technarion logo" />
+  </a>
+  <h1 class="title-green">Technarion</h1>
+</div>
+  <div class="row">
+    <a class="btn" href="/about-me.html">About Me</a>
+    <a class="btn" href="/contact.html">Contact us</a>
+  </div>
+</header>
+
+
+<main>
+
+
+<h1>Contact</h1>
+<p class="note">Fill in the form and we’ll get back to you shortly.</p>
+
+
+<form id="contact-form" novalidate>
+<div class="row_form">
+<div>
+<label for="firstName">First name</label>
+<input id="firstName" name="firstName" autocomplete="given-name" required />
+</div>
+<div>
+<label for="lastName">Last name</label>
+<input id="lastName" name="lastName" autocomplete="family-name" required />
+</div>
+</div>
+<div class="row_form">
+<div>
+<label for="email">Email</label>
+<input id="email" name="email" type="email" autocomplete="email" required />
+</div>
+<div>
+<label for="phone">Phone</label>
+<input id="phone" name="phone" type="tel" autocomplete="tel" />
+</div>
+</div>
+<div>
+<label for="message">How can we help?</label>
+<textarea id="message" name="message" rows="6" required></textarea>
+</div>
+<div>
+<button id="submitBtn" type="submit">Send</button>
+<span id="status" class="status" role="status" aria-live="polite"></span>
+</div>
+</form>
+</main>
+
+
+  <footer>
+  © <span id="year"></span> Technarion · Helsinki · All rights reserved
+  <nav>
+    <a href="/privacy-policy.html">Privacy Policy</a>
+  </nav>
+</footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <script>
+// Configure your backend endpoint here (same-origin default)
+const ENDPOINT = "/api/contact"; // change to full URL if API is on another domain
+
+
+const form = document.getElementById('contact-form');
+const statusEl = document.getElementById('status');
+const submitBtn = document.getElementById('submitBtn');
+
+
+function formDataToJSON(formEl){
+const data = Object.fromEntries(new FormData(formEl).entries());
+return {
+firstName: (data.firstName || '').trim(),
+lastName: (data.lastName || '').trim(),
+email: (data.email || '').trim(),
+phone: (data.phone || '').trim(),
+message: (data.message || '').trim(),
+userAgent: navigator.userAgent,
+page: location.href
+};
+}
+
+
+form.addEventListener('submit', async (e) => {
+e.preventDefault();
+statusEl.textContent = '';
+
+
+if(!form.reportValidity()) return;
+
+
+submitBtn.disabled = true;
+submitBtn.textContent = 'Sending…';
+try {
+const payload = formDataToJSON(form);
+const res = await fetch(ENDPOINT, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify(payload),
+credentials: 'include'
+});
+if(res.ok){
+statusEl.textContent = 'Thanks! Your message has been sent.';
+statusEl.className = 'status ok';
+form.reset();
+} else {
+const text = await res.text();
+statusEl.textContent = `Send failed (${res.status}). ${text || ''}`;
+statusEl.className = 'status err';
+}
+} catch(err){
+statusEl.textContent = 'Network error. Please try again.';
+statusEl.className = 'status err';
+} finally {
+submitBtn.disabled = false;
+submitBtn.textContent = 'Send';
+}
+});
+</script>
+</body>
+</html>
