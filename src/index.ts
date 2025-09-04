@@ -37,6 +37,7 @@ app.use('/api/contact', limiter);
 app.post('/api/contact', async (req, res) => {
   const { firstName, lastName, email, phone, message, userAgent, page } = req.body || {};
   if(!firstName || !lastName || !email || !message){
+    console.log(JSON.stringify(req.body))
   return res.status(400).send('Missing required fields.');
   }
 
