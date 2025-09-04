@@ -4,10 +4,10 @@
   "description": "This an instruction, how to use web pages. The project is implemented with Typescript and its running on docker container. The image is build and deployed to AWS ECR repo by Github Actions.",
   "main": "index.js",
   "scripts": {
-  "dev": "ts-node src/index.ts",
-  "build": "tsc",
-  "start": "node dist/index.js"
-},
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kallesiukolaa/webpage.git"
@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/kallesiukolaa/webpage#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "aws-sdk": "^2.1692.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
