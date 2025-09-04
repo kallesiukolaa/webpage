@@ -6,6 +6,8 @@ import {SQS} from 'aws-sdk'
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.enable('trust proxy')
+
 /*
 // Root endpoint -> prints "hello world"
 app.get("/", (req: Request, res: Response) => {
