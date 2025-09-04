@@ -8,6 +8,14 @@ const PORT = process.env.PORT || 3000;
 
 app.set('trust proxy', 1)
 
+// Add this line to parse JSON payloads
+app.use(express.json()); 
+
+// Serve static assets from /public (index.html, style.css, etc.)
+app.use(express.static(path.join(__dirname, "../public"), {
+  extensions: ["html"], // allows hitting / to serve index.html
+}));
+
 /*
 // Root endpoint -> prints "hello world"
 app.get("/", (req: Request, res: Response) => {
