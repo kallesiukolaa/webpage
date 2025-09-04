@@ -55,7 +55,7 @@ app.post('/api/contact', async (req, res) => {
 
 
   // Example: enqueue to SNS/SQS, or send an email via SES here
-   await sqs.sendMessage({
+  sqs.sendMessage({
     MessageBody: req.body.message,
     QueueUrl: process.env.QUEUE_URL ?? '',
     MessageAttributes: {
@@ -81,6 +81,8 @@ app.post('/api/contact', async (req, res) => {
       }
     }
    })
+
+  console.log('A new message sent to the queue')
 
 
   return res.status(202).send('Accepted');
