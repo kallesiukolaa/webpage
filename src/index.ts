@@ -44,48 +44,49 @@ app.get("/", (_req: Request, res: Response) => {
 const limiter = rateLimit({ windowMs: 60 * 1000, max: 20 });
 app.use('/api/contact', limiter);
 
+// index.ts
+
+// ... (your existing imports and app setup) ...
+
 app.post('/api/contact', async (req, res) => {
-  const { firstName, lastName, email, phone, message, userAgent, page } = req.body || {};
-  if(!firstName || !lastName || !email || !message){
-  return res.status(400).send('Missing required fields.');
+  const { firstName, lastName, email, message } = req.body || {};
+  if (!firstName || !lastName || !email || !message) {
+    // This is already good, returns a non-descriptive error
+    return res.status(400).send('Missing required fields.');
   }
 
-  const sqs = new SQS()
-
-
-  // Example: enqueue to SNS/SQS, or send an email via SES here
-  await sqs.sendMessage({
-    MessageBody: req.body.message,
-    QueueUrl: process.env.QUEUE_URL ?? '',
-    MessageAttributes: {
-      FirstName: {
-        DataType: "String",
-        StringValue: req.body.firstName
-      },
-      LastName: {
-        DataType: "String",
-        StringValue: req.body.lastName
-      },
-      Email: {
-        DataType: "String",
-        StringValue: req.body.email
-      },
-      Phone: {
-        DataType: "String",
-        StringValue: req.body.phone
-      },
-      UserAgent: {
-        DataType: "String",
-        StringValue: req.body.userAgent
-      }
+  try {
+    const sqs = new SQS();
+    
+    // Check for required AWS environment variables here
+    if (!process.env.QUEUE_URL || !process.env.AWS_REGION) {
+      console.error('Missing AWS environment variables: QUEUE_URL or AWS_REGION');
+      return res.status(500).send('An internal server error occurred.');
     }
-   }).promise()
 
-  console.log('A new message sent to the queue')
-  console.log(JSON.stringify(req.body))
+    // Example: enqueue to SNS/SQS, or send an email via SES here
+    await sqs.sendMessage({
+      MessageBody: message,
+      QueueUrl: process.env.QUEUE_URL,
+      MessageAttributes: {
+        FirstName: { DataType: "String", StringValue: firstName },
+        LastName: { DataType: "String", StringValue: lastName },
+        Email: { DataType: "String", StringValue: email },
+        Phone: { DataType: "String", StringValue: req.body.phone },
+        UserAgent: { DataType: "String", StringValue: req.body.userAgent },
+      }
+    }).promise();
 
+    res.sendStatus(200);
 
-  return res.status(202).send('Accepted');
+  } catch (error) {
+    // This is the crucial part:
+    // Log the detailed error for yourself (for debugging)
+    console.error('Error sending message to SQS:', error);
+
+    // Return a generic error message to the client
+    res.status(500).send('An internal server error occurred.');
+  }
 });
 
 app.listen(PORT, () => {

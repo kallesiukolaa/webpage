@@ -1,184 +1,237 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Montserrat:wght@400;600&display=swap');
 
+:root{
+  --bg-1:#07121a;
+  --bg-2:#0e2230;
+  --ink:#eef2f3;
+  --muted:#b8d3d0;
+  --brand:#00bfa5;
+  --brand-ink:#062b2a;
+  --card:#0c1b26;
+  --stroke:#11414a;
+  --bg-image:url('./images/consulting.jpg');
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    font-family: 'Montserrat', sans-serif;
-    color: #e0e0e0;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+  margin: 0;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  background:
+    linear-gradient(180deg, rgba(7,18,26,.85), rgba(14,34,48,.85)),
+    var(--bg-image) center / cover no-repeat fixed;
 }
 
-.container {
-    max-width: 900px;
-    margin: 2rem auto;
-    background: rgba(20, 30, 50, 0.85);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 2.5rem 3rem;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
-    position: relative;
-    z-index: 1;
-}
-
-button#print-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #008080;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 0.5rem 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-}
-
-button#print-btn:hover {
-    background-color: #005050;
-}
-
-.btn{background:var(--brand);color:var(--brand-ink);border:0;padding:.75rem 1.1rem;border-radius:10px;font-weight:700;cursor:pointer}
-
-.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap; height: 50px;}
-
-header h1 {
-    margin: 0;
-    font-size: 2.8rem;
-    color: #00bfa5;
-    font-weight: 700;
-    letter-spacing: 1.2px;
+/* TYPOGRAPHY */
+h1 {
+  margin: 0;
+  font-size: clamp(28px, 5vw, 48px);
+  letter-spacing: .5px;
+  color: var(--brand);
 }
 
 .tagline {
-    margin-top: 0.3rem;
-    font-style: italic;
-    font-weight: 600;
-    color: #a0d8d3;
+  margin: .4rem 0 0;
+  color: var(--muted);
+  font-size: clamp(14px, 2.2vw, 18px);
 }
 
-.profile {
-    display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
-    border-bottom: 1px solid #004040;
-    padding-bottom: 1.8rem;
+h2 {
+  margin: 0 0 1rem;
+  color: var(--brand);
+  font-size: clamp(22px, 3.6vw, 28px);
 }
 
-.profile img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #00bfa5;
-    filter: drop-shadow(0 0 6px #00bfa5);
+p {
+  max-width: 80ch;
+  color: #e7f4f3;
 }
 
-.profile p {
-    flex: 1;
-    font-size: 1.05rem;
-    color: #c0dcdc;
+a {
+  color: var(--brand);
 }
 
-main { max-width: 900px; margin: 2rem auto; padding: 1rem; }
-
-
-section h2 {
-    font-size: 1.8rem;
-    color: #00bfa5;
-    border-bottom: 2px solid #00bfa5;
-    padding-bottom: 0.3rem;
-    margin-top: 2.5rem;
+a:hover {
+  text-decoration: underline;
 }
 
-.contact ul,
-.skills .skill-list {
-    list-style: none;
-    padding: 0;
+/* BUTTONS & LINKS */
+.btn {
+  background: var(--brand);
+  color: var(--brand-ink);
+  border: 0;
+  padding: .75rem 1.1rem;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.contact li {
-    margin-bottom: 0.5rem;
-    font-size: 1.05rem;
-    color: #a0d8d3;
+/* LAYOUT */
+header, section, footer, main {
+  padding: clamp(16px, 2.2vw, 28px) clamp(18px, 4vw, 80px);
 }
 
-.skills .skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
-    margin-top: 0.8rem;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-bottom: 1px solid #0f2b38;
 }
 
-.skills li {
-    background: linear-gradient(135deg, #00bfa5);
-    padding: 0.5rem 1.2rem;
-    border-radius: 50px;
-    color: white;
-    font-family: 'Fira Code', monospace;
-    font-weight: 600;
-    font-size: 0.95rem;
-    box-shadow: none;
-    transition: transform 0.2s ease-in-out;
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
 }
 
-.skills li:hover {
-    transform: scale(1.1);
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  height: 50px;
 }
 
-.experience .job {
-    margin-bottom: 2rem;
+/* ICON CARDS GRID */
+.grid {
+  display: grid;
+  gap: 16px;
 }
 
-.experience h3 {
-    margin: 0;
-    color: #00bfa5;
-    font-weight: 700;
-    font-size: 1.2rem;
-    
+.grid.cols-3 {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-.experience p em {
-    color: #66cfcf;
-    font-size: 0.95rem;
+.card {
+  background: rgba(12, 27, 38, .55);
+  backdrop-filter: saturate(120%) blur(4px);
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
 }
 
-.experience ul {
-    margin-top: 0.5rem;
-    padding-left: 1.2rem;
-    color: #c0dcdc;
-    font-size: 1rem;
-    break-before: always;
+.icon {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  display: inline-block;
 }
 
-.experience ul li {
-    margin-bottom: 0.4rem;
+.icon svg {
+  width: 28px;
+  height: 28px;
+  display: block;
 }
 
-.education p {
-    font-size: 1.05rem;
-    color: #a0d8d3;
-    margin-top: 0.5rem;
+.icon circle, .icon path, .icon rect, .icon line {
+  stroke: #9fe6db;
 }
 
-.signature {
-    margin-top: 4rem;
-    text-align: right;
-    font-style: italic;
-    color: #55a099;
+/* KPI STRIP */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
 }
 
-.signature h3 {
-    font-family: 'Pacifico', cursive;
-    font-weight: normal;
-    font-size: 1.8rem;
-    margin-bottom: 0.4rem;
+.kpi {
+  background: rgba(10, 25, 34, .45);
+  backdrop-filter: blur(2px);
+  border: 1px dashed #22565e;
+  border-radius: 12px;
+  padding: 12px;
 }
 
+.kpi h3 {
+  margin: .2rem 0;
+  color: #a0d8d3;
+}
+
+/* UTIL */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* FORMS */
+form {
+  display: grid;
+  gap: 12px;
+  background: rgba(12,27,38,.55);
+  border: 1px solid #11414a;
+  border-radius: 14px;
+  padding: 18px;
+  backdrop-filter: saturate(120%) blur(4px);
+}
+
+.row_form {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+label {
+  font-weight: 600;
+}
+
+input, textarea {
+  width: 100%;
+  padding: .7rem .8rem;
+  border-radius: 10px;
+  border: 1px solid #22565e;
+  background: #0e2230;
+  color: #eef2f3;
+}
+
+input:focus, textarea:focus {
+  outline: 2px solid var(--brand);
+  border-color: var(--brand);
+}
+
+button {
+  background: var(--brand);
+  color: #062b2a;
+  border: 0;
+  padding: .8rem 1.1rem;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.note {
+  font-size: .9rem;
+  color: #b8d3d0;
+}
+
+.status {
+  margin-top: 8px;
+  font-size: .95rem;
+}
+
+.status.ok {
+  color: #7fe1d3;
+}
+
+.status.err {
+  color: #ffb3b3;
+}
+
+/* HEADER AND FOOTER */
 .brand-row {
   display: flex;
   align-items: center;
@@ -195,16 +248,14 @@ section h2 {
   margin: 0;
   font-size: clamp(24px, 4.6vw, 42px);
   font-weight: 800;
-  color: #00bfa5; /* brand green */
+  color: #00bfa5;
 }
 
-header {
-  display: flex;
+.brand-link {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  border-bottom: 1px solid #0f2b38;
-  padding: clamp(16px,2.2vw,28px) clamp(18px,4vw,80px);
+  line-height: 0;
+  text-decoration: none;
 }
 
 footer {
@@ -212,7 +263,37 @@ footer {
   text-align: center;
   color: #b7d6d3;
   opacity: .92;
-  padding: clamp(16px,2.2vw,28px) clamp(18px,4vw,80px);
 }
 
-.brand-link { display:inline-flex; align-items:center; line-height:0; text-decoration:none; }
+/* ABOUT PAGE SPECIFIC STYLES */
+.about-page {
+  background: linear-gradient(180deg, rgba(7,18,26,.85), rgba(14,34,48,.85)),
+              var(--bg-image) center / cover no-repeat fixed;
+}
+
+.about-page main img {
+  max-width: 180px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+/* PRIVACY PAGE SPECIFIC STYLES */
+.privacy-page {
+  background: #0a1a1a;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+.privacy-page main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.privacy-page h1, .privacy-page h2 {
+  color: #00bfa5;
+}
+
+.privacy-page a {
+  color: #00bfa5;
+}

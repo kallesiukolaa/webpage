@@ -11,57 +11,6 @@
   <meta property="og:locale" content="en_FI" />
   <link rel="icon" href="/favicon_round.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="./style.css" />
-  <style>
-    :root{
-      --bg-1:#07121a; --bg-2:#0e2230; --ink:#eef2f3; --muted:#b8d3d0; --brand:#00bfa5; --brand-ink:#062b2a;
-      --card:#0c1b26; --stroke:#11414a;
-      /* set this to your image path */
-      --bg-image:url('./images/consulting.jpg');
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;color:var(--ink);
-      background:
-        linear-gradient(180deg, rgba(7,18,26,.85), rgba(14,34,48,.85)),
-        var(--bg-image) center / cover no-repeat fixed;
-    }
-
-    /* TYPOGRAPHY */
-    h1{margin:0;font-size:clamp(28px,5vw,48px);letter-spacing:.5px}
-    .tagline{margin:.4rem 0 0;color:var(--muted);font-size:clamp(14px,2.2vw,18px)}
-    h2{margin:0 0 1rem;color:var(--brand);font-size:clamp(22px,3.6vw,28px)}
-    p{max-width:80ch;color:#e7f4f3}
-    a{color:var(--brand)} a:hover{text-decoration:underline}
-
-    /* ICON CARDS GRID */
-    .grid{display:grid;gap:16px}
-    .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .card{background:rgba(12,27,38,.55);backdrop-filter:saturate(120%) blur(4px);
-      border:1px solid var(--stroke);border-radius:14px;padding:18px;display:flex;gap:14px;align-items:flex-start}
-
-    .icon{width:28px;height:28px;flex:0 0 28px;display:inline-block}
-    .icon svg{width:28px;height:28px;display:block}
-    .icon circle,.icon path,.icon rect,.icon line{stroke:#9fe6db}
-
-    /* KPI STRIP */
-    .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:10px}
-    .kpi{background:rgba(10,25,34,.45);backdrop-filter:blur(2px);border:1px dashed #22565e;border-radius:12px;padding:12px}
-    .kpi h3{margin:.2rem 0;color:#a0d8d3}
-
-    /* UTIL */
-    .stack{display:flex;flex-direction:column;gap:10px}
-    h1 { color: var(--brand); }
-    form { display:grid; gap:12px; background:rgba(12,27,38,.55); border:1px solid #11414a; border-radius:14px; padding:18px; backdrop-filter:saturate(120%) blur(4px); }
-    .row_form { display:grid; gap:12px; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); }
-    label { font-weight:600; }
-    input, textarea { width:100%; padding:.7rem .8rem; border-radius:10px; border:1px solid #22565e; background:#0e2230; color:#eef2f3; }
-    input:focus, textarea:focus { outline:2px solid var(--brand); border-color: var(--brand); }
-    button { background:var(--brand); color:#062b2a; border:0; padding:.8rem 1.1rem; border-radius:10px; font-weight:700; cursor:pointer; }
-    .note { font-size:.9rem; color:#b8d3d0; }
-    .status { margin-top:8px; font-size:.95rem; }
-    .status.ok { color:#7fe1d3; }
-    .status.err { color:#ffb3b3; }
-  </style>
 </head>
 <body>
   
