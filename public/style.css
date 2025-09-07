@@ -372,3 +372,10 @@ pre {
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }
+
+code {
+        display: block;
+        font: 1em monospace;
+        white-space: pre;
+        overflow: scroll;
+      }
