@@ -379,3 +379,9 @@ code {
         white-space: pre;
         overflow: scroll;
       }
+
+@media (max-width: 600px) {
+  code {
+    font-size: 0.8em;
+  }
+}
