@@ -369,19 +369,19 @@ footer {
 
 pre {
   overflow-x: auto;
-  white-space: pre-wrap;
-  overflow-wrap: break-word;
+  white-space: pre;
+  word-wrap: normal;
 }
 
-code {
-        display: block;
-        font: 1em monospace;
-        white-space: pre;
-        overflow: scroll;
-      }
+pre code {
+  /* Ensure the code fits inside the pre container */
+  white-space: pre;
+  overflow-x: scroll;
+}
 
 @media (max-width: 600px) {
   code {
     font-size: 0.8em;
+    overflow-x: scroll;
   }
 }
