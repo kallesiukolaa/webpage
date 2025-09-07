@@ -51,6 +51,10 @@ h2 {
   font-size: clamp(22px, 3.6vw, 28px);
 }
 
+h4 {
+  color: var(--brand);
+}
+
 p {
   color: #e7f4f3;
 }
@@ -376,6 +380,7 @@ pre {
 pre code {
   /* Ensure the code fits inside the pre container */
   white-space: pre;
+  max-width: 200px;
   overflow-x: scroll;
 }
 
@@ -384,4 +389,15 @@ pre code {
     font-size: 0.8em;
     overflow-x: scroll;
   }
+  pre code {
+  /* Ensure the code fits inside the pre container */
+  white-space: pre;
+  overflow-x: scroll;
+  }
+  .cardblog[data-expanded="true"] .full-content {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+  max-width: 300px
+}
+
 }
