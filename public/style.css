@@ -123,6 +123,18 @@ main {
   align-items: flex-start;
 }
 
+.cardblog {
+  background: rgba(12, 27, 38, .55);
+  backdrop-filter: saturate(120%) blur(4px);
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+
 .icon {
   width: 28px;
   height: 28px;
@@ -205,7 +217,7 @@ input:focus, textarea:focus {
 
 button {
   background: var(--brand);
-  color: #062b2a;
+  color: var(--brand-ink);
   border: 0;
   padding: .8rem 1.1rem;
   border-radius: 10px;
@@ -296,4 +308,55 @@ footer {
 
 .privacy-page a {
   color: #00bfa5;
+}
+
+/* BLOG PAGE SPECIFIC STYLES */
+.full-content {
+  display: none;
+}
+
+.initial-content {
+  display: block;
+}
+
+.expand-btn {
+  /* This change forces the button onto its own line and removes the gap */
+  display: block;
+ margin-top: 1rem;
+}
+
+/* When the card has data-expanded="true" */
+.card[data-expanded="true"] .full-content {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.card[data-expanded="true"] .expand-btn {
+  display: none;
+}
+
+.card[data-expanded="false"] .collapse-btn {
+  display: none;
+}
+
+.cardblog[data-expanded="true"] .full-content {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.cardblog[data-expanded="true"] .expand-btn {
+  display: none;
+}
+
+.cardblog[data-expanded="false"] .collapse-btn {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
