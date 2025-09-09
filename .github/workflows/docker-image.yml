@@ -28,9 +28,9 @@ jobs:
 
             - name: Copy files to the s3 website content bucket
               run:
-                aws s3 sync public s3://technarion-3-bucket-for-webpage/public --delete
+                aws s3 sync public s3://technarion-3-bucket-for-webpage/ --delete
 
-            - name: Login to AWS
+            - name: Login to ECR
               id: login-ecr
               uses: aws-actions/amazon-ecr-login@v1
 
