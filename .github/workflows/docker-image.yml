@@ -26,6 +26,10 @@ jobs:
                 aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                 aws-region: eu-north-1
 
+            - name: Copy files to the s3 website content bucket
+              run:
+                aws s3 sync public s3://technarion-3-bucket-for-webpage/public --delete
+
             - name: Login to AWS
               id: login-ecr
               uses: aws-actions/amazon-ecr-login@v1
