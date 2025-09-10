@@ -80,7 +80,7 @@
 
   <script>
 // Configure your backend endpoint here (same-origin default)
-const ENDPOINT = "/api/contact"; // change to full URL if API is on another domain
+const ENDPOINT = "https://api.technarion.com/contact"; // change to full URL if API is on another domain
 
 
 const form = document.getElementById('contact-form');
@@ -117,8 +117,7 @@ const payload = formDataToJSON(form);
 const res = await fetch(ENDPOINT, {
 method: 'POST',
 headers: { 'Content-Type': 'application/json' },
-body: JSON.stringify(payload),
-credentials: 'include'
+body: JSON.stringify(payload)
 });
 if(res.ok){
 statusEl.textContent = 'Thanks! Your message has been sent.';
@@ -130,7 +129,7 @@ statusEl.textContent = `Send failed (${res.status}). ${text || ''}`;
 statusEl.className = 'status err';
 }
 } catch(err){
-statusEl.textContent = 'Network error. Please try again.';
+statusEl.textContent = err;
 statusEl.className = 'status err';
 } finally {
 submitBtn.disabled = false;
