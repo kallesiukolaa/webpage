@@ -33,7 +33,7 @@
 
 
 <h1>Contact</h1>
-<p class="note">Fill in the form and we’ll get back to you shortly.</p>
+<p class="note">Fill in the form and I’ll get back to you shortly.</p>
 
 
 <form id="contact-form" novalidate>
@@ -58,7 +58,7 @@
 </div>
 </div>
 <div>
-<label for="message">How can we help?</label>
+<label for="message">How can I help?</label>
 <textarea id="message" name="message" rows="6" required maxlength="3000"></textarea>
 </div>
 <div>
@@ -129,7 +129,7 @@ statusEl.textContent = `Send failed (${res.status}). ${text || ''}`;
 statusEl.className = 'status err';
 }
 } catch(err){
-statusEl.textContent = err;
+statusEl.textContent = 'Network error. Please try again.';
 statusEl.className = 'status err';
 } finally {
 submitBtn.disabled = false;
