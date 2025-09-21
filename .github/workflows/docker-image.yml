@@ -26,6 +26,17 @@ jobs:
                 aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                 aws-region: eu-north-1
 
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                node-version: '18'
+
+            - name: Install dependencies
+              run: npm install glob
+
+            - name: Execute sitemap generation script
+              run: node generate-sitemap.js
+
             - name: Copy files to the s3 website content bucket
               run:
                 aws s3 sync public s3://technarion-3-bucket-for-webpage/ --delete
