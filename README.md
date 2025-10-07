@@ -50,3 +50,11 @@ Create new github actions secrets (https://docs.github.com/en/actions/how-tos/wr
 ```
 
 Copy the values from the output. Now if the build is successfull, you should see new images in the AWS ECR repository
+
+## Running locally
+
+To run the application locally on your machine, run 
+
+```bash
+  npm run dev
+```
