@@ -403,3 +403,142 @@ pre code {
 }
 
 }
+
+.availability-page {
+  background: linear-gradient(180deg, rgba(7,18,26,.85), rgba(14,34,48,.85)),
+              var(--bg-image) center / cover no-repeat fixed;
+}
+
+/* FOOTER HOVER EFFECT (Revised for multi-line and mobile) */
+.business-info {
+  /* Desktop: Hidden state */
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap; 
+  transition: opacity 0.3s, max-width 0.3s, margin-left 0.3s;
+}
+
+/* New layout for footer to stack content */
+footer {
+  display: flex;
+  flex-direction: column; /* Stacks lines vertically (main text and nav) */
+  align-items: center; /* Centers lines horizontally */
+  gap: 4px; /* Vertical space between the main text line and the nav link */
+  padding: clamp(16px, 2.2vw, 28px) clamp(18px, 4vw, 80px);
+}
+
+/* Ensure the line of text uses flex for the horizontal hover effect on DESKTOP */
+.footer-line {
+  display: flex;
+  align-items: center;
+  gap: 6px; 
+}
+
+/* On hover over the footer, show the business info inside the line */
+footer:hover .business-info {
+  opacity: 1;
+  max-width: 500px;
+  margin-left: 6px;
+}
+
+/* On hover over the footer, hide/fade the original 'All rights reserved' text */
+footer:hover .original-text {
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: opacity 0.3s, max-width 0.3s;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    /* Switch footer line to block so its contents can naturally wrap */
+    .footer-line {
+        display: block;
+        text-align: center;
+    }
+    
+    /* Force IDs to be visible and allow wrapping on mobile */
+    .business-info {
+        display: block;
+        opacity: 1;
+        max-width: none; 
+        overflow: visible;
+        white-space: normal; /* Allows text to wrap */
+        margin: 4px 0 0 0; /* Adds a small top margin for separation */
+        transition: none; /* Disable transition on mobile */
+    }
+    
+    /* Hide the original "All rights reserved" text on mobile since the IDs replace it */
+    .original-text {
+        display: none;
+    }
+    
+    /* Ensure the copyright text on mobile flows naturally */
+    .copyright-text {
+        display: block; 
+    }
+}
+
+/* ==================================== */
+/* MOBILE ADJUSTMENTS          */
+/* ==================================== */
+@media (max-width: 600px) {
+  
+  /* HEADER LAYOUT: Stacks the logo/title block and the buttons vertically */
+  header {
+    flex-direction: column;
+    align-items: center; /* Centers the brand row */
+    padding: 1rem 0; 
+  }
+  
+  /* SCROLLABLE BUTTON BAR: Forces buttons onto one line and enables horizontal scroll */
+  header .row {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto; /* ENABLE HORIZONTAL SCROLLING */
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    margin-top: 1rem;
+    /* RESTORE ORIGINAL DISTANCE: Use gap to match desktop spacing (12px) */
+    gap: 12px; 
+    /* Add padding on the sides and bottom (for scrollbar) */
+    padding: 0 1rem 8px 1rem; 
+  }
+
+  /* Ensure buttons use their original size/style and clear any conflicting mobile margins */
+  header .row .btn {
+      white-space: nowrap; 
+      margin: 0; /* Clear previous left/right margins to let gap control spacing */
+  }
+
+  /* FOOTER FIX: Mobile Adjustments */
+  
+  /* Switch footer line to block so its contents can naturally wrap */
+  .footer-line {
+      display: block;
+      text-align: center;
+  }
+  
+  /* Force IDs to be visible and allow wrapping on mobile */
+  .business-info {
+      display: block;
+      opacity: 1;
+      max-width: none; 
+      overflow: visible;
+      white-space: normal;
+      margin: 4px 0 0 0;
+      transition: none;
+  }
+  
+  /* Hide the original "All rights reserved" text on mobile since the IDs replace it */
+  .original-text {
+      display: none;
+  }
+  
+  /* Ensure the copyright text on mobile flows naturally */
+  .copyright-text {
+      display: block; 
+  }
+}

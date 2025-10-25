@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!-- Google tag (gtag.js) --> 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17626019853"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-17626019853'); </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17626019853"></script>
+  <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'AW-17626019853'); </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Blog | Technarion</title>
@@ -12,6 +14,7 @@
   <link rel="icon" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
+
 <body class="blog-page">
 
   <header>
@@ -22,6 +25,7 @@
       <h1 class="title-green">Technarion</h1>
     </div>
     <div class="row">
+      <a class="btn" href="/availability.html">Availability</a>
       <a class="btn" href="/about-me.html">About Me</a>
       <a class="btn" href="/blog.html">Blog</a>
       <a class="btn" href="/contact.html">Contact us</a>
@@ -29,9 +33,10 @@
   </header>
 
   <main>
-    <h1>Our Blog</h1>
+    <h1>My Blog</h1>
     <p>
-      Welcome to our blog! We'll be sharing insights on data engineering, software development, and the latest trends in technology.
+      Welcome to My blog! I will be sharing insights on data engineering, software development, and the latest trends in
+      technology.
     </p>
 
     <div class="grid">
@@ -40,15 +45,22 @@
           <h2>The Challenge of "Works on My Machine"</h2>
           <small>By Kalle Siukola | September 20, 2025</small>
           <p>
-            Every developer has faced it: the application works perfectly on their local machine, but when it's deployed to another environment, it breaks. This is often due to mismatched dependencies, operating system differences, or configuration issues. The solution to this problem is containerization, and the most popular tool for it is Docker.
-        </p>
-        <button class="btn expand-btn">Read more</button>
+            Every developer has faced it: the application works perfectly on their local machine, but when it's deployed
+            to another environment, it breaks. This is often due to mismatched dependencies, operating system
+            differences, or configuration issues. The solution to this problem is containerization, and the most popular
+            tool for it is Docker.
+          </p>
+          <button class="btn expand-btn">Read more</button>
         </div>
         <div class="full-content">
           <p>
-            A Docker image is a static, read-only template that contains your application and all its dependencies, from libraries and system tools to your own code. It's the blueprint. A container is a runnable instance of an image. You can have multiple containers running from the same image, each completely isolated from the others.
+            A Docker image is a static, read-only template that contains your application and all its dependencies, from
+            libraries and system tools to your own code. It's the blueprint. A container is a runnable instance of an
+            image. You can have multiple containers running from the same image, each completely isolated from the
+            others.
           </p>
-          <p>To build an image, you use a Dockerfile, a simple text file with a list of instructions. A basic Dockerfile might look like this:</p>
+          <p>To build an image, you use a Dockerfile, a simple text file with a list of instructions. A basic Dockerfile
+            might look like this:</p>
           <pre><code class="language-dockerfile">
 # Start from a base image
 FROM node:18-alpine
@@ -69,25 +81,51 @@ EXPOSE 3000
 # Run the application
 CMD ["node", "app.js"]
 </code></pre>
-        <p>For security, it is critical to avoid running your application as the root user inside the container. This practice, known as dropping privileges, prevents potential security vulnerabilities from escalating to the host machine.</p>
-        <h4>Scaling and Orchestration with ECS and Fargate</h4>
-        <p>Once your application is packaged in a container, you need a way to manage it at scale. Manually running and managing hundreds of containers is not feasible. This is where a container orchestrator comes in. On AWS, <strong>Elastic Container Service (ECS)</strong> is a fully managed service that simplifies the deployment, management, and scaling of containers.</p>
-        <p>ECS has several core components: a <strong>Task Definition</strong> describes your container, including its image and resource requirements. A Task is a running instance of that Task Definition. A <strong>Service</strong> is a long-running collection of tasks, ensuring you always have the desired number of instances running and automatically handling failed tasks.</p>
-        <p>When you use ECS, you can choose between two launch types: <strong>EC2 or Fargate</strong>. With the EC2 launch type, you provision and manage the underlying virtual machines where your containers run. This offers fine-grained control but requires more operational overhead. Fargate, on the other hand, is a serverless compute engine for containers. You simply specify your CPU and memory requirements, and AWS handles the provisioning, scaling, and maintenance of the underlying infrastructure. It's the ideal choice for developers who want to focus on their applications, not the servers.</p>
-        <h4>Defining Infrastructure with the AWS CDK</h4>
-        <p>To provision and manage your cloud resources in a repeatable and efficient way, you use Infrastructure as <strong>Code (IaC)</strong>. The <strong>AWS Cloud Development Kit (CDK)</strong> is a modern IaC framework that lets you define your cloud resources using familiar programming languages like TypeScript or Python.</p>
-        <p>With the CDK, you can define your entire ECS infrastructure, including clusters, services, load balancers, and security groups, in a single codebase. This is a significant improvement over manual configuration or even JSON/YAML-based templates, as it provides a higher level of abstraction and allows for code reusability. For example, a single CDK file can define an entire scalable, containerized application and its supporting infrastructure.</p>
-        <p>
-        By combining containers, ECS (with Fargate), and the CDK, you achieve a deployment pipeline that is:
-        </p>
+          <p>For security, it is critical to avoid running your application as the root user inside the container. This
+            practice, known as dropping privileges, prevents potential security vulnerabilities from escalating to the
+            host machine.</p>
+          <h4>Scaling and Orchestration with ECS and Fargate</h4>
+          <p>Once your application is packaged in a container, you need a way to manage it at scale. Manually running
+            and managing hundreds of containers is not feasible. This is where a container orchestrator comes in. On
+            AWS, <strong>Elastic Container Service (ECS)</strong> is a fully managed service that simplifies the
+            deployment, management, and scaling of containers.</p>
+          <p>ECS has several core components: a <strong>Task Definition</strong> describes your container, including its
+            image and resource requirements. A Task is a running instance of that Task Definition. A
+            <strong>Service</strong> is a long-running collection of tasks, ensuring you always have the desired number
+            of instances running and automatically handling failed tasks.</p>
+          <p>When you use ECS, you can choose between two launch types: <strong>EC2 or Fargate</strong>. With the EC2
+            launch type, you provision and manage the underlying virtual machines where your containers run. This offers
+            fine-grained control but requires more operational overhead. Fargate, on the other hand, is a serverless
+            compute engine for containers. You simply specify your CPU and memory requirements, and AWS handles the
+            provisioning, scaling, and maintenance of the underlying infrastructure. It's the ideal choice for
+            developers who want to focus on their applications, not the servers.</p>
+          <h4>Defining Infrastructure with the AWS CDK</h4>
+          <p>To provision and manage your cloud resources in a repeatable and efficient way, you use Infrastructure as
+            <strong>Code (IaC)</strong>. The <strong>AWS Cloud Development Kit (CDK)</strong> is a modern IaC framework
+            that lets you define your cloud resources using familiar programming languages like TypeScript or Python.
+          </p>
+          <p>With the CDK, you can define your entire ECS infrastructure, including clusters, services, load balancers,
+            and security groups, in a single codebase. This is a significant improvement over manual configuration or
+            even JSON/YAML-based templates, as it provides a higher level of abstraction and allows for code
+            reusability. For example, a single CDK file can define an entire scalable, containerized application and its
+            supporting infrastructure.</p>
+          <p>
+            By combining containers, ECS (with Fargate), and the CDK, you achieve a deployment pipeline that is:
+          </p>
 
-        <ol>
-        <li><strong>Fast and Reliable:</strong> Developers can deploy applications more quickly and with fewer errors because the environments are consistent.</li>
-        <li><strong>Cost-Effective:</strong> With Fargate, you only pay for the resources your containers use, without the wasted cost of idle servers.</li>
-        <li><strong>Scalable:</strong> Your applications can automatically scale to handle increased traffic without manual intervention.</li>
-        <li><strong>Maintainable:</strong> Your infrastructure is managed like code, making it version-controlled, reusable, and much easier to maintain over time.</li>
-        </ol>
-                <p>This approach makes deployment a simple, repeatable process, allowing your team to focus on building features and innovation instead of battling with complex infrastructure. It is the gold standard for modern, cloud-native application deployment.</p>
+          <ol>
+            <li><strong>Fast and Reliable:</strong> Developers can deploy applications more quickly and with fewer
+              errors because the environments are consistent.</li>
+            <li><strong>Cost-Effective:</strong> With Fargate, you only pay for the resources your containers use,
+              without the wasted cost of idle servers.</li>
+            <li><strong>Scalable:</strong> Your applications can automatically scale to handle increased traffic without
+              manual intervention.</li>
+            <li><strong>Maintainable:</strong> Your infrastructure is managed like code, making it version-controlled,
+              reusable, and much easier to maintain over time.</li>
+          </ol>
+          <p>This approach makes deployment a simple, repeatable process, allowing your team to focus on building
+            features and innovation instead of battling with complex infrastructure. It is the gold standard for modern,
+            cloud-native application deployment.</p>
           <button class="btn collapse-btn">Hide content</button>
         </div>
       </div>
@@ -97,24 +135,33 @@ CMD ["node", "app.js"]
           <strong>DevOps for Data: Bridging the Gap</strong>
           <small>By [Your Name] | September 10, 2025</small>
           <p>
-            The principles of DevOps have revolutionized software development, but data teams have been slow to adopt them...
+            The principles of DevOps have revolutionized software development, but data teams have been slow to adopt
+            them...
           </p>
         </div>
         <button class="btn expand-btn">Read more</button>
         <div class="full-content">
           <h2>Why Data Teams Need DevOps</h2>
           <p>
-            Data pipelines are often complex and brittle. Without proper version control and automated testing, a small change in one part of the pipeline can cause a cascade of failures. Adopting DevOps principles helps data teams manage their code and infrastructure with the same rigor as a software development team.
+            Data pipelines are often complex and brittle. Without proper version control and automated testing, a small
+            change in one part of the pipeline can cause a cascade of failures. Adopting DevOps principles helps data
+            teams manage their code and infrastructure with the same rigor as a software development team.
           </p>
           <h2>Key Practices</h2>
           <p>
-            A key tool is <strong>dbt (data build tool)</strong>, which allows you to define your data transformations as code. This means you can version control your data models, run tests to ensure data quality, and easily deploy changes using a CI/CD pipeline.
+            A key tool is <strong>dbt (data build tool)</strong>, which allows you to define your data transformations
+            as code. This means you can version control your data models, run tests to ensure data quality, and easily
+            deploy changes using a CI/CD pipeline.
           </p>
           <p>
-            <strong>CI/CD (Continuous Integration/Continuous Deployment)</strong> pipelines automate the process of building, testing, and deploying your data models. This ensures that every change is tested and that only validated code makes it into production.
+            <strong>CI/CD (Continuous Integration/Continuous Deployment)</strong> pipelines automate the process of
+            building, testing, and deploying your data models. This ensures that every change is tested and that only
+            validated code makes it into production.
           </p>
           <p>
-            Bridging the gap between data engineering and DevOps is crucial for building scalable, reliable, and trustworthy data platforms. By treating data pipelines as software, teams can move faster and deliver higher-quality data products.
+            Bridging the gap between data engineering and DevOps is crucial for building scalable, reliable, and
+            trustworthy data platforms. By treating data pipelines as software, teams can move faster and deliver
+            higher-quality data products.
           </p>
           <button class="btn collapse-btn">Hide content</button>
         </div>
@@ -123,7 +170,15 @@ CMD ["node", "app.js"]
   </main>
 
   <footer>
-    © <span id="year"></span> Technarion · Helsinki · All rights reserved
+    <div class="footer-line">
+      © <span id="year"></span> Technarion · Helsinki ·
+      <span class="business-info">
+        Y-tunnus (Finnish Business ID): 3562081-6 · VAT ID: FI35620816
+      </span>
+      <span class="original-text">
+        All rights reserved
+      </span>
+    </div>
     <nav>
       <a href="/privacy-policy.html">Privacy Policy</a>
     </nav>
@@ -133,22 +188,23 @@ CMD ["node", "app.js"]
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.expand-btn').forEach(button => {
-    button.addEventListener('click', (e) => {
-      const card = e.target.closest('.cardblog');
-      card.setAttribute('data-expanded', 'true');
-    });
-  });
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.expand-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const card = e.target.closest('.cardblog');
+          card.setAttribute('data-expanded', 'true');
+        });
+      });
 
-  document.querySelectorAll('.collapse-btn').forEach(button => {
-    button.addEventListener('click', (e) => {
-      const card = e.target.closest('.cardblog');
-      card.setAttribute('data-expanded', 'false');
+      document.querySelectorAll('.collapse-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+          const card = e.target.closest('.cardblog');
+          card.setAttribute('data-expanded', 'false');
+        });
+      });
     });
-  });
-});
-</script>
+  </script>
 </body>
+
 </html>
