@@ -509,9 +509,9 @@ footer:hover .original-text {
   /* HEADER LAYOUT: Stacks the logo/title block and the buttons vertically */
   header {
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     /* Centers the brand row */
-    padding: 1rem 0;
+    padding: 1rem 0 1rem 1rem;
   }
 
   /* SCROLLABLE BUTTON BAR: Forces buttons onto one line and enables horizontal scroll */
@@ -527,7 +527,7 @@ footer:hover .original-text {
     /* RESTORE ORIGINAL DISTANCE: Use gap to match desktop spacing (12px) */
     gap: 12px;
     /* Add padding on the sides and bottom (for scrollbar) */
-    padding: 0 1rem 0 1rem; 
+    padding: 0 -1rem 0 1rem; 
     height: auto; /* Allow the container to grow to fit all rows of buttons */
   }
 
