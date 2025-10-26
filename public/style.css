@@ -1,35 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Montserrat:wght@400;600&display=swap');
 
-:root{
-  --bg-1:#07121a;
-  --bg-2:#0e2230;
-  --ink:#eef2f3;
-  --muted:#b8d3d0;
-  --brand:#00bfa5;
-  --brand-ink:#062b2a;
-  --card:#0c1b26;
-  --stroke:#11414a;
-  --bg-image:url('./images/consulting.jpg');
+:root {
+  --bg-1: #07121a;
+  --bg-2: #0e2230;
+  --ink: #eef2f3;
+  --muted: #b8d3d0;
+  --brand: #00bfa5;
+  --brand-ink: #062b2a;
+  --card: #0c1b26;
+  --stroke: #11414a;
+  --bg-image: url('./images/consulting.jpg');
 }
 
 * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   overflow: hidden;
 }
 
 body {
   margin: 0;
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
   color: var(--ink);
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
   overflow: auto;
   background:
-    linear-gradient(180deg, rgba(7,18,26,.85), rgba(14,34,48,.85)),
+    linear-gradient(180deg, rgba(7, 18, 26, .85), rgba(14, 34, 48, .85)),
     var(--bg-image) center / cover no-repeat fixed;
 }
 
@@ -81,7 +82,10 @@ a:hover {
 }
 
 /* LAYOUT */
-header, section, footer, main {
+header,
+section,
+footer,
+main {
   padding: clamp(16px, 2.2vw, 28px) clamp(18px, 4vw, 80px);
 }
 
@@ -153,7 +157,10 @@ main {
   display: block;
 }
 
-.icon circle, .icon path, .icon rect, .icon line {
+.icon circle,
+.icon path,
+.icon rect,
+.icon line {
   stroke: #9fe6db;
 }
 
@@ -189,7 +196,7 @@ main {
 form {
   display: grid;
   gap: 12px;
-  background: rgba(12,27,38,.55);
+  background: rgba(12, 27, 38, .55);
   border: 1px solid #11414a;
   border-radius: 14px;
   padding: 18px;
@@ -206,7 +213,8 @@ label {
   font-weight: 600;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   padding: .7rem .8rem;
   border-radius: 10px;
@@ -215,7 +223,8 @@ input, textarea {
   color: #eef2f3;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: 2px solid var(--brand);
   border-color: var(--brand);
 }
@@ -284,8 +293,8 @@ footer {
 
 /* ABOUT PAGE SPECIFIC STYLES */
 .about-page {
-  background: linear-gradient(180deg, rgba(7,18,26,.85), rgba(14,34,48,.85)),
-              var(--bg-image) center / cover no-repeat fixed;
+  background: linear-gradient(180deg, rgba(7, 18, 26, .85), rgba(14, 34, 48, .85)),
+    var(--bg-image) center / cover no-repeat fixed;
 }
 
 .about-page main img {
@@ -307,7 +316,8 @@ footer {
   padding: 1rem;
 }
 
-.privacy-page h1, .privacy-page h2 {
+.privacy-page h1,
+.privacy-page h2 {
   color: #00bfa5;
 }
 
@@ -327,7 +337,7 @@ footer {
 .expand-btn {
   /* This change forces the button onto its own line and removes the gap */
   display: block;
- margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 /* When the card has data-expanded="true" */
@@ -361,6 +371,7 @@ footer {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -391,22 +402,24 @@ pre code {
     font-size: 0.8em;
     overflow-x: scroll;
   }
+
   pre code {
-  /* Ensure the code fits inside the pre container */
-  white-space: pre;
-  overflow-x: scroll;
+    /* Ensure the code fits inside the pre container */
+    white-space: pre;
+    overflow-x: scroll;
   }
+
   .cardblog[data-expanded="true"] .full-content {
-  display: block;
-  animation: fadeIn 0.5s ease-in-out;
-  max-width: 300px
-}
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+    max-width: 300px
+  }
 
 }
 
 .availability-page {
-  background: linear-gradient(180deg, rgba(7,18,26,.85), rgba(14,34,48,.85)),
-              var(--bg-image) center / cover no-repeat fixed;
+  background: linear-gradient(180deg, rgba(7, 18, 26, .85), rgba(14, 34, 48, .85)),
+    var(--bg-image) center / cover no-repeat fixed;
 }
 
 /* FOOTER HOVER EFFECT (Revised for multi-line and mobile) */
@@ -415,16 +428,19 @@ pre code {
   opacity: 0;
   max-width: 0;
   overflow: hidden;
-  white-space: nowrap; 
+  white-space: nowrap;
   transition: opacity 0.3s, max-width 0.3s, margin-left 0.3s;
 }
 
 /* New layout for footer to stack content */
 footer {
   display: flex;
-  flex-direction: column; /* Stacks lines vertically (main text and nav) */
-  align-items: center; /* Centers lines horizontally */
-  gap: 4px; /* Vertical space between the main text line and the nav link */
+  flex-direction: column;
+  /* Stacks lines vertically (main text and nav) */
+  align-items: center;
+  /* Centers lines horizontally */
+  gap: 4px;
+  /* Vertical space between the main text line and the nav link */
   padding: clamp(16px, 2.2vw, 28px) clamp(18px, 4vw, 80px);
 }
 
@@ -432,7 +448,7 @@ footer {
 .footer-line {
   display: flex;
   align-items: center;
-  gap: 6px; 
+  gap: 6px;
 }
 
 /* On hover over the footer, show the business info inside the line */
@@ -453,92 +469,100 @@ footer:hover .original-text {
 
 /* Mobile Adjustments */
 @media (max-width: 600px) {
-    /* Switch footer line to block so its contents can naturally wrap */
-    .footer-line {
-        display: block;
-        text-align: center;
-    }
-    
-    /* Force IDs to be visible and allow wrapping on mobile */
-    .business-info {
-        display: block;
-        opacity: 1;
-        max-width: none; 
-        overflow: visible;
-        white-space: normal; /* Allows text to wrap */
-        margin: 4px 0 0 0; /* Adds a small top margin for separation */
-        transition: none; /* Disable transition on mobile */
-    }
-    
-    /* Hide the original "All rights reserved" text on mobile since the IDs replace it */
-    .original-text {
-        display: none;
-    }
-    
-    /* Ensure the copyright text on mobile flows naturally */
-    .copyright-text {
-        display: block; 
-    }
+
+  /* Switch footer line to block so its contents can naturally wrap */
+  .footer-line {
+    display: block;
+    text-align: center;
+  }
+
+  /* Force IDs to be visible and allow wrapping on mobile */
+  .business-info {
+    display: block;
+    opacity: 1;
+    max-width: none;
+    overflow: visible;
+    white-space: normal;
+    /* Allows text to wrap */
+    margin: 4px 0 0 0;
+    /* Adds a small top margin for separation */
+    transition: none;
+    /* Disable transition on mobile */
+  }
+
+  /* Hide the original "All rights reserved" text on mobile since the IDs replace it */
+  .original-text {
+    display: none;
+  }
+
+  /* Ensure the copyright text on mobile flows naturally */
+  .copyright-text {
+    display: block;
+  }
 }
 
 /* ==================================== */
 /* MOBILE ADJUSTMENTS          */
 /* ==================================== */
 @media (max-width: 600px) {
-  
+
   /* HEADER LAYOUT: Stacks the logo/title block and the buttons vertically */
   header {
     flex-direction: column;
-    align-items: center; /* Centers the brand row */
-    padding: 1rem 0; 
+    align-items: center;
+    /* Centers the brand row */
+    padding: 1rem 0;
   }
-  
+
   /* SCROLLABLE BUTTON BAR: Forces buttons onto one line and enables horizontal scroll */
   header .row {
     flex-wrap: nowrap;
+    /* Forces onto one line */
     justify-content: flex-start;
-    overflow-x: auto; /* ENABLE HORIZONTAL SCROLLING */
+    overflow-x: auto;
+    /* ENABLE HORIZONTAL SCROLLING */
     -webkit-overflow-scrolling: touch;
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 0;
     /* RESTORE ORIGINAL DISTANCE: Use gap to match desktop spacing (12px) */
-    gap: 12px; 
+    gap: 12px;
     /* Add padding on the sides and bottom (for scrollbar) */
-    padding: 0 1rem 8px 1rem; 
+    padding: 0 1rem 8px 1rem;
   }
 
   /* Ensure buttons use their original size/style and clear any conflicting mobile margins */
   header .row .btn {
-      white-space: nowrap; 
-      margin: 0; /* Clear previous left/right margins to let gap control spacing */
+    white-space: nowrap;
+    margin: 0;
+    /* Clear previous left/right margins to let gap control spacing */
   }
 
   /* FOOTER FIX: Mobile Adjustments */
-  
+
   /* Switch footer line to block so its contents can naturally wrap */
   .footer-line {
-      display: block;
-      text-align: center;
+    display: block;
+    text-align: center;
   }
-  
+
   /* Force IDs to be visible and allow wrapping on mobile */
   .business-info {
-      display: block;
-      opacity: 1;
-      max-width: none; 
-      overflow: visible;
-      white-space: normal;
-      margin: 4px 0 0 0;
-      transition: none;
+    display: block;
+    opacity: 1;
+    max-width: none;
+    overflow: visible;
+    white-space: normal;
+    margin: 4px 0 0 0;
+    transition: none;
   }
-  
+
   /* Hide the original "All rights reserved" text on mobile since the IDs replace it */
   .original-text {
-      display: none;
+    display: none;
   }
-  
+
   /* Ensure the copyright text on mobile flows naturally */
   .copyright-text {
-      display: block; 
+    display: block;
   }
 }
