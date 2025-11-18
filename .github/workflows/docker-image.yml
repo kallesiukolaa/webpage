@@ -41,6 +41,10 @@ jobs:
               run:
                 aws s3 sync public s3://technarion-3-bucket-for-webpage/ --delete
 
+            - name: Invoke lambda that creates invalidations for distributions
+              run:
+                aws lambda invoke --function-name website-invalidate /dev/stdout
+
             - name: Login to ECR
               id: login-ecr
               uses: aws-actions/amazon-ecr-login@v1

@@ -18,10 +18,9 @@ done
 for POLICY in $ATTACHED_POLICIES; do
   echo "Deattaching policy: $POLICY for user: github-actions-user-for-webpage"
   aws iam detach-user-policy --user-name github-actions-user-for-webpage --policy-arn "$POLICY"
+  aws iam delete-policy --policy-arn "$POLICY"
 done
 
 aws iam delete-user --user-name github-actions-user-for-webpage
-
-aws iam delete-policy --policy-arn arn:aws:iam::$AWS_ACCOUNT_ID:policy/ecr-access-for-github-user
 
 aws ecr delete-repository --repository-name aws-repo-for-my-webpage
