@@ -3,7 +3,7 @@ const path = require('path');
 const glob = require('glob');
 
 // --- CONFIGURATION ---
-const HOSTNAME = 'https://www.technarion.com';
+const HOSTNAME = 'https://technarion.com';
 const PAGES_FOLDER = './public'; // Or the path to your static pages folder
 const OUTPUT_FILE = './public/sitemap.xml';
 
