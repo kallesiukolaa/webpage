@@ -23,12 +23,6 @@ Then we will create ecr repo, users and policies. You only need to do this once.
   sh aws-create-user-and-repo.sh
 ```
 
-There is a cleanup script in case you need to delete your aws changes
-
-```bash
-  sh aws-clean-resources.sh
-```
-
 Once you have run aws-create-user-and-repo.sh, you should see the following output
 
 ```json
@@ -57,4 +51,12 @@ To run the application locally on your machine, run
 
 ```bash
   npm run dev
+```
+
+## Clean resources
+
+There is a cleanup script in case you need to delete your aws changes
+
+```bash
+  sh aws-clean-resources.sh
 ```
