@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17626019853"></script>
   <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'AW-17626019853'); </script>
   <meta charset="UTF-8" />
@@ -19,6 +18,20 @@
   <link rel="stylesheet" href="/style.css" />
   <link rel="icon" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <style>
+    /* Container for the SVG label.
+      Matches default browser label spacing.
+      pointer-events: none; prevents text selection by bots/users.
+    */
+    .captcha-label-container {
+      display: block;
+      margin-bottom: 0.5rem; 
+      pointer-events: none; 
+      user-select: none;
+      -webkit-user-select: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -71,6 +84,20 @@
         <label for="message">How can I help?</label>
         <textarea id="message" name="message" rows="6" required maxlength="3000"></textarea>
       </div>
+
+      <div style="margin-top: 1rem;">
+        
+        <div class="captcha-label-container">
+          <svg width="250" height="20" viewBox="0 0 250 20" xmlns="http://www.w3.org/2000/svg">
+            <text x="0" y="15" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" fill="#ffffff">
+              Who is the US President?
+            </text>
+          </svg>
+        </div>
+
+        <input id="securityAnswer" name="securityAnswer" placeholder="Type the last name..." required maxlength="30" autocomplete="off" />
+      </div>
+
       <div>
         <button id="submitBtn" type="submit">Send</button>
         <span id="status" class="status" role="status" aria-live="polite"></span>
@@ -98,7 +125,7 @@
 
   <script>
     // Configure your backend endpoint here (same-origin default)
-    const ENDPOINT = "https://api.technarion.com/contact"; // change to full URL if API is on another domain
+    const ENDPOINT = "https://api.technarion.com/contact"; 
 
 
     const form = document.getElementById('contact-form');
@@ -108,12 +135,14 @@
 
     function formDataToJSON(formEl) {
       const data = Object.fromEntries(new FormData(formEl).entries());
+      
       return {
         firstName: (data.firstName || '').trim(),
         lastName: (data.lastName || '').trim(),
         email: (data.email || '').trim(),
         phone: (data.phone || '').trim(),
         message: (data.message || '').trim(),
+        securityAnswer: (data.securityAnswer || '').trim(), // Sent to backend for verification
         userAgent: navigator.userAgent,
         page: location.href
       };
