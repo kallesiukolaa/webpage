@@ -20,6 +20,10 @@ Configure your AWS connection (see https://docs.aws.amazon.com/cli/v1/userguide/
 Then we will create ecr repo, users and policies. You only need to do this once. Run 
 
 ```bash
+  cd scripts/awsSetup
+```
+
+```bash
   sh aws-create-user-and-repo.sh
 ```
 
@@ -46,6 +50,11 @@ Create new github actions secrets (https://docs.github.com/en/actions/how-tos/wr
 Copy the values from the output. Now if the build is successfull, you should see new images in the AWS ECR repository
 
 ## Running locally
+
+Install the dependecies
+```bash
+npm install --only=dev
+```
 
 To run the application locally on your machine, run 
 

@@ -147,3 +147,6 @@ src/*.js
 **/*.d.ts.map
 
 .DS_Store
+
+# WebP files (we store jpg)
+*.webp

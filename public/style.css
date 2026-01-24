@@ -9,7 +9,6 @@
   --brand-ink: #062b2a;
   --card: #0c1b26;
   --stroke: #11414a;
-  --bg-image: url('./images/consulting.jpg');
 }
 
 * {
@@ -29,9 +28,19 @@ body {
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
   overflow: auto;
+
+  /* 1. Standard Fallback for older browsers (loads JPG) */
   background:
     linear-gradient(180deg, rgba(7, 18, 26, .85), rgba(14, 34, 48, .85)),
-    var(--bg-image) center / cover no-repeat fixed;
+    url('./images/consulting.jpg') center / cover no-repeat fixed;
+
+  /* 2. Modern browsers (loads WebP if supported) */
+  background:
+    linear-gradient(180deg, rgba(7, 18, 26, .85), rgba(14, 34, 48, .85)),
+    image-set(
+      url('./images/consulting.webp') type('image/webp'),
+      url('./images/consulting.jpg') type('image/jpeg')
+    ) center / cover no-repeat fixed;
 }
 
 /* TYPOGRAPHY */
@@ -291,12 +300,6 @@ footer {
   opacity: .92;
 }
 
-/* ABOUT PAGE SPECIFIC STYLES */
-.about-page {
-  background: linear-gradient(180deg, rgba(7, 18, 26, .85), rgba(14, 34, 48, .85)),
-    var(--bg-image) center / cover no-repeat fixed;
-}
-
 .about-page main img {
   max-width: 180px;
   border-radius: 50%;
@@ -415,11 +418,6 @@ pre code {
     max-width: 300px
   }
 
-}
-
-.availability-page {
-  background: linear-gradient(180deg, rgba(7, 18, 26, .85), rgba(14, 34, 48, .85)),
-    var(--bg-image) center / cover no-repeat fixed;
 }
 
 /* FOOTER HOVER EFFECT (Revised for multi-line and mobile) */
