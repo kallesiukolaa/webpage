@@ -9,15 +9,7 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Get Image Tag
-              id: image-tag
-              run: echo "::set-output name=image-tag-name::website-image-name-$(date +%s)"
-
             - uses: actions/checkout@v4
-            - name: Build the Docker image
-              env:
-                IMAGE_TAG_NAME: ${{ steps.image-tag.outputs.image-tag-name }}
-              run: docker build . -t $IMAGE_TAG_NAME
 
             - name: AWS login
               uses: aws-actions/configure-aws-credentials@v1
@@ -44,14 +36,3 @@ jobs:
             - name: Invoke lambda that creates invalidations for distributions
               run:
                 aws lambda invoke --function-name website-invalidate /dev/stdout
-
-            - name: Login to ECR
-              id: login-ecr
-              uses: aws-actions/amazon-ecr-login@v1
-
-            - name: Push to ECR
-              id: push-ecr
-              env:
-                ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-                IMAGE_TAG_NAME: ${{ steps.image-tag.outputs.image-tag-name }}
-              run: docker image tag $IMAGE_TAG_NAME $ECR_REGISTRY/aws-repo-for-my-webpage:latest && docker push $ECR_REGISTRY/aws-repo-for-my-webpage:latest
